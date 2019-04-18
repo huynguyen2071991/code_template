@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+// --------------------------------------------------
+// Headings
+// --------------------------------------------------
+h3 {
+  font: {
+    size: 40px;
+    weight: bold;
+  }
+
+  margin-bottom: 20px;
+  border-bottom: 2px solid #333;
+}
+
+h4 {}
+
+h5 {}
+
+// --------------------------------------------------
+// Table
+// --------------------------------------------------
+.overflow-table {
+  overflow-x: auto;
+}
+
+// --------------------------------------------------
+// Common
+// --------------------------------------------------
+.hover-all {
+  position: relative;
+
+  >a {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9;
+  }
+}
+
+.sp-link {
+  pointer-events: none;
+  color: $base-font-color;
+  text-decoration: none;
+
+  @media only screen and (max-width: $screen-tb) {
+    pointer-events: all;
+  }
+}
+
+.code-ttl {
+  @include flex($a-items: center);
+
+  font: {
+    size: 14px;
+    weight: bold;
+    family: $f-roboto;
+  }
+
+  margin-bottom: 10px;
+
+  &:after {
+    content: "\f168";
+
+    font: {
+      family: $f-mdi;
+      weight: normal;
+      size: 30px;
+    }
+
+    display: inline-block;
+    margin-left: 5px;
+    line-height: 1;
+  }
+}
+
+pre {
+  border-radius: 4px;
+  height: 300px;
+}
+
+pre code {
+  display: block;
+  overflow: auto;
+  background-color: #333;
+  border: 0;
+  box-shadow: 2px 4px 25px rgba(0, 0, 0, .15);
+}
+
+article {
+  padding: 30px 0;
+
+  border: {
+    bottom: 2px dashed #ccc;
+  }
+}
+
+// --------------------------------------------------
+// slide-menu
+// --------------------------------------------------
+body {
+  width: 100%;
+
+  &.open {
+    position: fixed;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  @if $header-fixed-pc {
+    padding-top: $header-height-pc;
+  }
+
+  @media only screen and (max-width: 768px) {
+    @if $header-fixed-sp {
+      position: relative;
+      padding-top: $header-height-sp;
+    }
+
+    @else {
+      padding-top: 0;
+    }
+  }
+}
